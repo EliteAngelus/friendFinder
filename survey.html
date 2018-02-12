@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Friend Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <style type="text/css">
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Survey Questions</h1>
+        <hr>
+        <h3><strong>About You</strong></h3>
+        <h4>Name (Required)</h4>
+        <form>
+            <div class="form-group">
+                <!-- <label for="exampleInputEmail1">Email address</label> -->
+                <input type="name" class="form-control" id="name-input" aria-describedby="" placeholder="Enter Name">
+                <small id="" class="form-text text-muted"></small>
+            </div>
+            <h4>Link to Photo Image (Required)</h4>
+            <div class="form-group">
+                <!-- <label for="exampleInputPassword1">Password</label> -->
+                <input type="imageLink" class="form-control" id="link-input" placeholder="Link to Image">
+            </div>
+
+
+
+        </form>
+
+        <div id="questionList"></div>
+
+        <h4 id="question1"><strong>Question 1</strong></h4>
+        <p>Your mind is always buzzing with unexplored ideas and plans.</p>
+        <select style="width: 200px; height: 20px; border-radius:5px; z-index: 5;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <h4 id="question2"><strong>Question 2</strong></h4>
+        <p>Generally speaking, you rely more on your experience than your imagination.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+        <h4 id="question3"><strong>Question 3</strong></h4>
+        <p>You find it easy to stay relaxed and focused even when there is some pressure.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+        <h4 id="question4"><strong>Question 4</strong></h4>
+        <p>You rarely do something just out of sheer curiosity.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <h4 id="question5"><strong>Question 5</strong></h4>
+        <p>People can rarely upset you.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <h4 id="question6"><strong>Question 6</strong></h4>
+        <p>It is often difficult for you to relate to other people’s feelings.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <h4 id="question7"><strong>Question 7</strong></h4>
+        <p>In a discussion, truth should be more important than people’s sensitivities.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <h4 id="question8"><strong>Question 8</strong></h4>
+        <p>You rarely get carried away by fantasies and ideas.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <h4 id="question9"><strong>Question 9</strong></h4>
+        <p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <h4 id="question10"><strong>Question 10</strong></h4>
+        <p>You feel more energetic after spending time with a group of people.</p>
+        <select style="width: 200px; height: 20px; border-radius: 5px;">
+
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+
+        <br>
+        <br>
+
+        <a href="/results" <button type="submit" class="btn btn-primary" id="submit">Submit</button></a>
+
+        <script type="text/javascript">
+            $("#submit").on("click", function() {
+                event.preventDefault();
+
+                var newFriend = {
+                    name: $("#name-input").val().trim(),
+                    photo: $("#link-input").val().trim(),
+                    scores: [
+                        parseInt($("#question1").val().trim()),
+                        parseInt($("#question2").val().trim()),
+                        parseInt($("#question3").val().trim()),
+                        parseInt($("#question4").val().trim()),
+                        parseInt($("#question5").val().trim()),
+                        parseInt($("#question6").val().trim()),
+                        parseInt($("#question7").val().trim()),
+                        parseInt($("#question8").val().trim()),
+                        parseInt($("#question9").val().trim()),
+                        parseInt($("#question10").val().trim()),
+                    ]
+                }
+                console.log(newFriend)
+                    // Question: What does this code do??
+                $.post("/api/friends", newFriend)
+                    .done(function(data) {
+                        console.log(data);
+                        alert("Adding Friend...");
+                    });
+            });
+
+            // =======================================================================================
+            // Loop code for questions. 
+            // var questions = [
+            // {
+            //     question: 'favorite sandwhich'
+            //     id: 1 
+            // },{
+            //     question: 'favorite tv show',
+            //     id: 2
+            // }];
+
+
+            // questions.forEach(function(value, index){
+            //     var questions = ' <h4 id="question10"><strong>Question'+value.id+'</strong></h4><p>'+value.question'</p><select style="width: 200px; height: 20px; border-radius: 5px;"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>';
+
+            //     $('#questionList').append(questions)
+            // })
+        </script>
+
+    </div>
+
+</body>
+
+</html>
