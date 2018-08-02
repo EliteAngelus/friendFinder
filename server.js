@@ -152,17 +152,14 @@ app.post("/api/friends", function(req, res) {
 
 // Get json that matches name that is entered. 
 app.get("/api/allfriends/:frienddata?", function(req, res) {
-    var friendNow = req.params.tabledata;
+    // var friendNow = req.params.tabledata;
 
-    if (friendNow) {
-        console.log(friendNow);
+    for (var i = 0; i < friends.length; i++) {
 
-        for (var i = 0; i < friends.length; i++) {
-
-            return res.json(friends[i]);
-        }
-        return res.json(false);
+        return res.json(friends[i]);
     }
+    return res.json(false);
+
     return res.json(friends);
 });
 // app.get("/api/allfriends", function(req, res) {
